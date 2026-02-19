@@ -1,0 +1,268 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/*Fonte personalizada*/
+.marck-script-regular {
+    font-family: "Marck Script", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #fff;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body:not(.sidebar-closed) .home .show {
+    /* Empurra a imagem 125px para a esquerda (metade da largura do menu) */
+    /* para que ela continue centralizada no espaço que sobrou */
+    margin-right: 150px; 
+}
+
+.cabecalho,
+.menu,
+.home,
+.cabecalho {
+    width: min(1100px, 100%);
+}
+
+.cabecalho {
+    display: flex;
+    width: 100%;
+    height: 130px;
+    background-image: url(../img/paper.jpg);
+    background-size: cover;
+    background-position: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 50px;
+    border-bottom: 3px solid #3d2b1f;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    z-index: 10;
+}
+
+.cabecalho::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.521),
+            rgba(0, 0, 0, 0.25));
+    z-index: 1;
+}
+
+
+.cabecalho .logo {
+    display: flex;
+    width: auto;
+    height: 130%;
+    z-index: 3;
+}
+
+.cabecalho .menu {
+    font-size: 1.2rem;
+    color: #fff;
+    z-index: 3;
+}
+
+.cabecalho .menu ul {
+    display: flex;
+    justify-content: end;
+    gap: 90px;
+    list-style: none;
+}
+
+.cabecalho .menu ul li a {
+    font-family: "Marck Script", cursive;
+    font-weight: bold;
+    font-size: x-large;
+    color: #fff;
+    text-decoration: none;
+    position: relative;
+    display: inline-block;
+    padding-bottom: 4px;
+}
+
+.cabecalho .menu ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2.6px;
+    background-color: #be8864;
+    border-radius: 20px;
+    transition: width 0.2s ease;
+}
+
+.cabecalho .menu ul li a:hover::after {
+    width: 100%;
+}
+
+.cabecalho .menu ul li a:hover {
+    color: #be8864;
+    transition: 0.3s;
+}
+
+.home {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    background-image: url(../img/wallpaper.jpg);
+    background-size: cover;
+    background-position: center;
+    width: 100%;
+    min-height: 90vh;
+    padding: 90px 60px;
+}
+
+.home::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom,
+            rgba(0, 0, 0, 0.449),
+            rgba(0, 0, 0, 0.35));
+    z-index: 1;
+}
+
+
+.home .titulo,
+.home h3 {
+    position: relative;
+    z-index: 10;
+    max-width: 530px;
+}
+
+.home .titulo {
+    font-size: 3rem;
+    margin-bottom: 20px;
+}
+
+.home p {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.home .show {
+    position: absolute;
+    right: 10%;
+    transform: translateX(50%);
+    bottom: 100px;
+    width: 500px;
+    height: auto;
+    border: 2.5px solid #3d2b1f;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px 10px rgba(0, 0, 0, 0.6);
+    z-index: 10;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.4, 1);
+}
+
+.late {
+    position: absolute;
+    float: right;
+    right: 0;
+    top: 130px;
+    width: 250px;
+    height: calc(109.4vh - 130px);
+    background-color: rgba(0, 0, 0, 0.8);
+    border-left: 2px solid #3d2b1f;
+    z-index: 20;
+    padding: 20px;
+    overflow: auto;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+
+.late::-webkit-scrollbar {
+    width: 8px;
+}
+
+.late::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.late::-webkit-scrollbar-thumb {
+    background: #3d2b1f;
+    border-radius: 10px;
+}
+
+.late::-webkit-scrollbar-thumb:hover {
+    background: #be8864;
+}
+
+.closed {
+    transform: translateX(100%);
+}
+
+.open-close-btn {
+    position: fixed;
+    top: 25%;
+    right: 250px;
+    z-index: 30;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px 15px;
+    cursor: pointer;
+    border-radius: 5px 0 0 5px;
+    transform: translateY(-50%);
+    transition: right 0.4s ease;
+}
+
+.open-close-btn:hover {
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+.closed+.open-close-btn {
+    right: 0;
+}
+
+.late .lista {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    list-style: none;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px 0px;
+}
+
+.late .lista li {
+    font-family: "Marck Script", cursive;
+    font-size: 1.2rem;
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid #3d2b1f;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.late .lista li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.late .lista li:hover {
+    background-color: rgba(255, 255, 255, 0.3);
+    color: #be8864;
+    transition: 0.3s;
+}
