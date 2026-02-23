@@ -19,7 +19,7 @@ O site funciona como uma **biblioteca/museu virtual**, permitindo que o usuário
 
 Confira abaixo uma prévia do site em funcionamento:
 
-[![Demonstração do Site](./Phylonet%20_%20Home.mp4)
+[![Demonstração do Site](./Phylonet_Home.mp4)
 
 > 📌 *Clique na imagem para assistir ao vídeo completo.*
 
