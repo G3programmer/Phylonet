@@ -15,14 +15,6 @@ O site funciona como uma **biblioteca/museu virtual**, permitindo que o usuário
 - Navegue por **galerias de arte imersivas**
 - Conecte passado e presente através de uma experiência visual e cultural
 
-## 🎥 Demonstração em Vídeo
-
-Confira abaixo uma prévia do site em funcionamento:
-
-[![Demonstração do Site](./Phylonet_Home.mp4)
-
-> 📌 *Clique na imagem para assistir ao vídeo completo.*
-
 ## 🧱 Tecnologias Utilizadas
 
 - HTML5  
