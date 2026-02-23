@@ -4,32 +4,23 @@
     box-sizing: border-box;
 }
 
-/*Fonte personalizada*/
-.marck-script-regular {
-    font-family: "Marck Script", cursive;
-    font-weight: 400;
-    font-style: normal;
-}
-
-
 html,
 body {
     height: 100%;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 body {
     display: flex;
+    background-color: rgb(0, 0, 0);
     flex-direction: column;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #fff;
     min-height: 100vh;
     overflow-x: hidden;
-}
-
-body:not(.sidebar-closed) .home .show {
-    /* Empurra a imagem 125px para a esquerda (metade da largura do menu) */
-    /* para que ela continue centralizada no espaço que sobrou */
-    margin-right: 150px; 
 }
 
 .cabecalho,
@@ -58,6 +49,7 @@ body:not(.sidebar-closed) .home .show {
     content: "";
     position: absolute;
     inset: 0;
+    height: 109%;
     background: linear-gradient(to bottom,
             rgba(0, 0, 0, 0.521),
             rgba(0, 0, 0, 0.25));
@@ -117,8 +109,14 @@ body:not(.sidebar-closed) .home .show {
     transition: 0.3s;
 }
 
+.wrapper-principal {
+    display: flex;
+    align-items: flex-start;
+}
+
 .home {
     position: relative;
+    flex: 4;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -161,7 +159,7 @@ body:not(.sidebar-closed) .home .show {
 
 .home .show {
     position: absolute;
-    right: 10%;
+    right: 30%;
     transform: translateX(50%);
     bottom: 100px;
     width: 500px;
@@ -174,95 +172,175 @@ body:not(.sidebar-closed) .home .show {
 }
 
 .late {
-    position: absolute;
-    float: right;
-    right: 0;
-    top: 130px;
-    width: 250px;
-    height: calc(109.4vh - 130px);
-    background-color: rgba(0, 0, 0, 0.8);
-    border-left: 2px solid #3d2b1f;
-    z-index: 20;
-    padding: 20px;
-    overflow: auto;
-    transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-
-
-.late::-webkit-scrollbar {
-    width: 8px;
-}
-
-.late::-webkit-scrollbar-track {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-.late::-webkit-scrollbar-thumb {
-    background: #3d2b1f;
-    border-radius: 10px;
-}
-
-.late::-webkit-scrollbar-thumb:hover {
-    background: #be8864;
-}
-
-.closed {
-    transform: translateX(100%);
-}
-
-.open-close-btn {
-    position: fixed;
-    top: 25%;
-    right: 250px;
-    z-index: 30;
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px 15px;
-    cursor: pointer;
-    border-radius: 5px 0 0 5px;
-    transform: translateY(-50%);
-    transition: right 0.4s ease;
-}
-
-.open-close-btn:hover {
-    background-color: rgba(0, 0, 0, 0.9);
-}
-
-.closed+.open-close-btn {
-    right: 0;
-}
-
-.late .lista {
     display: flex;
+    width: 100px;
+    height: 100%;
     flex-direction: column;
-    flex-wrap: wrap;
-    list-style: none;
-    gap: 20px;
-    justify-content: center;
-    padding: 40px 0px;
+    background: #261b13;
+    border: 3px solid #fff;
 }
 
-.late .lista li {
-    font-family: "Marck Script", cursive;
-    font-size: 1.2rem;
+.late .lista  {
+    list-style: upper-roman;
     color: #fff;
     text-align: center;
+    margin: 0px 10px 0px 50px;
+}
+
+.late .lista li{
+    margin: 30px 40px;
+    background:#65442c;
+    border: 2px solid #fff;
+    border-radius: 7px;
+    width: 70%;
     padding: 10px;
-    border: 2px solid #3d2b1f;
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.1);
-    transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-.late .lista li a {
+.late .lista a {
     color: #fff;
-    text-decoration: none;
+    padding: 10px;
+    text-decoration: none; 
+
 }
 
-.late .lista li:hover {
-    background-color: rgba(255, 255, 255, 0.3);
-    color: #be8864;
-    transition: 0.3s;
+.rodape {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    padding: 15px 0px 3px 0px;
+    background:
+        linear-gradient(to right,
+            #000000 0%,
+            #00000055 20%,
+            #000000e3 90%,
+            #000000de 100%),
+        url(../img/wallpaper-footer.jpg);
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: left;
+    gap: 50px;
+}
+
+.rodape .subtitulo {
+    margin-top: 100px;
+    color: #facfab;
+}
+
+.rodape .subtitulo,
+.rodape .social_media,
+.rodape .opcoes,
+.rodape p {
+    width: 500px;
+    margin-right: 240px;
+    align-self: end;
+    text-align: center;
+}
+
+.rodape .social_media {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.rodape .social_media a {
+    display: flex;
+    flex-direction: row;
+    background: #fff;
+    height: 49px;
+    width: 49px;
+    margin: 10px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: transform 0.5s ease;
+}
+
+.rodape .social_media a img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+    align-self: center;
+    justify-items: center;
+    margin: auto;
+    object-fit: cover;
+}
+
+.rodape .social_media a:hover {
+    transform: scale(1.2);
+}
+
+.rodape .social_media #instagram img {
+    margin: -2.5px 0px -4px 9.5px;
+}
+
+
+.rodape .social_media #reddit img {
+    width: 59px;
+    height: 59px;
+    margin: 3px 0px 2px -4.6px;
+}
+
+
+
+.rodape .social_media #instagram:hover {
+    background: #FF990A;
+    background: linear-gradient(35deg, rgba(255, 153, 10, 1) 16%, rgba(255, 8, 181, 1) 45%, rgba(177, 12, 237, 1) 72%);
+
+    img {
+        content: url(../img/social/instagram-light.png);
+        margin: -2.5px 0px -4px 9.5px;
+
+    }
+}
+
+.rodape .social_media #linkedin:hover {
+    background: #0a66c2;
+
+    img {
+        content: url(../img/social/linkedin-light.png);
+    }
+}
+
+.rodape .social_media #reddit:hover {
+    background: #ff4a08;
+
+    img {
+        content: url(../img/social/reddit-light.png);
+        width: 50px;
+        height: 50px;
+        margin: 0px 0px 0px -1px;
+    }
+}
+
+.rodape .opcoes .lista {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.rodape .opcoes .lista a {
+    text-decoration: none;
+    color: #fff;
+    width: 150px;
+    align-self: center;
+    font-size: 150%;
+    position: relative;
+    padding-bottom: 5px;
+}
+
+.rodape .opcoes .lista a::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2.6px;
+    background-color: #be8864;
+    border-radius: 20px;
+    transition: width 0.5s ease;
+}
+
+.rodape .opcoes .lista a:hover::after {
+    width: 100%;
+    /* Expande a largura total */
 }
